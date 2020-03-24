@@ -4,8 +4,6 @@ import ktrain
 from ktrain import text
 import argparse
 
-from __future__ import absolute_import, division, print_function, unicode_literals, unicode_literals
-
 import os
 
 import tensorflow as tf
@@ -34,7 +32,7 @@ def train_model(x_train, x_test, y_train, y_test, label_list, epoch, checkpoint_
 	val = t.preprocess_test(x_test, y_test)
 	model = t.get_classifier()
 	learner = ktrain.get_learner(model, train_data=trn, val_data=val, batch_size=6)
-	learner.fit_onecycle(3e-5, epoch, checkpoint_folder = checkpoint_path)
+	learner.fit_onecycle(3e-5, int(epoch),checkpoint_folder = checkpoint_path)
 	return learner, model
 
 def predictor(learner, test):
@@ -47,5 +45,5 @@ if __name__ == "__main__":
 	checkpoint_path = "training_1/cp.ckpt"
 	checkpoint_dir = os.path.dirname(checkpoint_path)
 
-	learner, model = train_model(x_train, x_test, y_train, y_test, label_list, args.epoch, checkpoint_path)
+	learner, model = train_model(x_train, x_test, y_train, y_test, label_list, int(args.epoch), checkpoint_path)
 	model.summary()
