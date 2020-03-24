@@ -20,7 +20,18 @@ python main.py --csv data.csv --label label_name --data data_name --epoch 5
 - XLNet: xlnet-base-cased, xlnet-large-cased
 
 ## Outstanding performance
-![](img.png)
+![](img.png)  
+97%
 
-## library
+## predictor
+You can use the function below.
+``` python
+def predictor(learner, test):
+	predictor = ktrain.get_predictor(learner.model, preproc=t)
+	print(predictor.predict(test))
+
+```
+
+
+## Library
 > https://github.com/amaiya/ktrain
