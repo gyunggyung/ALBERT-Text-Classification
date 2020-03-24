@@ -1,10 +1,13 @@
 # ALBERT-Text-Classification
 Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
 
-## How to use
-```
+## Install Package
+``` python
 pip install ktrain
+```
 
+## How to use
+``` python
 python main.py --csv data.csv --label label_name --data data_name --epoch 5
 ```
 
