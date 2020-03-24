@@ -5,7 +5,7 @@ Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
 ```
 pip install ktrain
 
-python main.py
+python main.py --csv data.csv --label label_name --data data_name
 ```
 
 ## Available models
@@ -16,7 +16,8 @@ python main.py
 - XLM: xlm-mlm-xnli15–1024, xlm-mlm-100–1280, and others
 - XLNet: xlnet-base-cased, xlnet-large-cased
 
-## Parts to be modified
-```
-	x_train, x_test, y_train, y_test = read_dataset("data.csv", "Resume", "Category") #dataset name, dataset, label
-```
+## Outstanding performance
+![](img.png)
+
+## library
+> https://github.com/amaiya/ktrain

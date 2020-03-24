@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import ktrain
 from ktrain import text
+import argparse
 
 def read_dataset(dataset, data, label):
 	df = pd.read_csv(dataset)
@@ -22,19 +23,22 @@ def train_model(x_train, x_test, y_train, y_test):
 	learner.fit_onecycle(3e-5, 5)
 	return learner
 
-if __name__ == "__main__":
-	x_train, x_test, y_train, y_test = read_dataset("data.csv", "Resume", "Category")
-	learner = train_model(x_train, x_test, y_train, y_test)
-	
+def parser():
+	parser = argparse.ArgumentParser(description='Process some integers.')
+	parser.add_argument('--csv', metavar='N', type='str',
+	                    help='train model csv file')
+	parser.add_argument('--label', metavar='N', type='str',
+	                    help='train label of dataset')
+	parser.add_argument('--data', metavar='N', type='str',
+	                    help='train dataset')
+
+	return parser.parse_args()
+
+def predictor(learner, test):
 	predictor = ktrain.get_predictor(learner.model, preproc=t)
-
-	test = """Compensation and Benefits Resume Example
-	A compensation and benefits specialist manages employee compensation, annual performance reviews and employee benefits. In a specialist role, the employee does additional administrative tasks, although management implements strategic planning in the company.
-
-	To build an impressive compensation and benefits resume, you must prove that you are extremely knowledgeable about benefits packages and compensation. The more HR knowledge you possess generally, the better you will be able to answer specific employees’ questions, no matter how complex they may be.
-
-	Take it a step further and share your administrative background; doing so will show hiring managers that you are thorough and do not let errors slip past.
-
-	"""
-
 	print(predictor.predict(test))
+
+if __name__ == "__main__":
+	args = parser()
+	x_train, x_test, y_train, y_test = read_dataset(args.csv, args.data, args.label)
+	learner = train_model(x_train, x_test, y_train, y_test)
