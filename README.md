@@ -5,7 +5,7 @@ Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
 ```
 pip install ktrain
 
-python main.py --csv data.csv --label label_name --data data_name
+python main.py --csv data.csv --label label_name --data data_name --epoch 5
 ```
 
 ## Available models
