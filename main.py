@@ -8,6 +8,7 @@ import os
 
 import tensorflow as tf
 from tensorflow import keras
+import keras
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('--csv', help='train model csv file')
@@ -16,6 +17,8 @@ parser.add_argument('--data', help='train dataset')
 parser.add_argument('--epoch', help='traing Epoch')
 
 args = parser.parse_args()
+
+logdir="./logs/"
 
 def read_dataset(dataset, data, label):
 	df = pd.read_csv(dataset)
@@ -28,11 +31,18 @@ def read_dataset(dataset, data, label):
 def train_model(x_train, x_test, y_train, y_test, label_list, epoch, checkpoint_path):
 	MODEL_NAME = 'albert-base-v2'
 	t = text.Transformer(MODEL_NAME, maxlen=500, class_names=label_list)
+
 	trn = t.preprocess_train(x_train, y_train)
 	val = t.preprocess_test(x_test, y_test)
+
 	model = t.get_classifier()
+
+	tbCallBack = keras.callbacks.TensorBoard(log_dir=logdir, write_graph=True, write_images=True)
+
 	learner = ktrain.get_learner(model, train_data=trn, val_data=val, batch_size=6)
-	learner.fit_onecycle(3e-5, int(epoch),checkpoint_folder = checkpoint_path)
+
+	learner.fit_onecycle(3e-5, int(epoch),checkpoint_folder = checkpoint_path, callbacks=[tbCallBack])
+
 	return learner, model
 
 def predictor(learner, test):

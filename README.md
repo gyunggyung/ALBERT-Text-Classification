@@ -32,6 +32,10 @@ def predictor(learner, test):
 
 ```
 
+## tensorboard
+```
+tensorboard --logdir = ./logs/
+```
 
 ## Library
 > https://github.com/amaiya/ktrain
