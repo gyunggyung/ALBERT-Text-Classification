@@ -7,7 +7,7 @@ pip install ktrain
 ```
 
 ## How to use
-``` python
+```
 python main.py --csv data.csv --label label_name --data data_name --epoch 5
 ```
 
