@@ -9,7 +9,6 @@ pip install requirements.txt
 
 ## How to use
 With simple commands, you can proceed with text classification for datasets made up of csv files.
-### General case
 ```
 python main.py --csv data.csv --label Category --data Resume --epoch 5
 ```
@@ -19,6 +18,11 @@ python main.py --csv data.csv --label label_name --data data_name --epoch 5
 ```
 
 ## Available models
+Replace the bottom part with the model you want.
+``` python
+	MODEL_NAME = 'albert-base-v2'
+```
+
 - BERT: *bert-base-uncased, bert-large-uncased, bert-base-multilingual-uncased, and others.*
 - DistilBERT: *distilbert-base-uncased, distilbert-base-multilingual-cased, distilbert-base-german-cased, and others*
 - ALBERT: *albert-base-v2, albert-large-v2, and others*
@@ -26,14 +30,10 @@ python main.py --csv data.csv --label label_name --data data_name --epoch 5
 - XLM: *xlm-mlm-xnli15–1024, xlm-mlm-100–1280, and others*
 - XLNet: *xlnet-base-cased, xlnet-large-cased*
 
-Replace the bottom part with the model you want.
-``` python
-	MODEL_NAME = 'albert-base-v2'
-```
 
 ## Outstanding performance
 ![](img.png)  
-97%
+##### 97
 
 ## predictor
 You can use the function below.
@@ -45,11 +45,9 @@ def predictor(learner, test):
 ```
 
 ## tensorboard
-
 ```
 tensorboard --logdir==training:your_log_dir --host=127.0.0.1
 ```
-
 ### Example
 ```
 tensorboard --logdir==training:logs/ --host=127.0.0.1
