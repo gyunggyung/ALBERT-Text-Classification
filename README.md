@@ -2,7 +2,7 @@
 
 ALBERT is "A Lite" version of BERT, a popular unsupervised language representation learning algorithm. ALBERT uses parameter-reduction techniques that allow for large-scale configurations, overcome previous memory limitations, and achieve better behavior with respect to model degradation. 
 
-For a technical description of the algorithm, see our paper: [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942)
+> For a technical description of the algorithm, see our paper: [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942)
 
 Using the ktrain library, proceed with the text classification. Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
 
@@ -18,7 +18,8 @@ With simple commands, you can proceed with text classification for datasets made
 python main.py \
 	--csv data.csv \
 	--label Category \
-	--data Resume --epoch 5
+	--data Resume \
+	--epoch 5
 ```
 ### My case
 ```
@@ -27,6 +28,26 @@ python main.py \
 	--label label_name \
 	--data data_name \
 	--epoch 5
+```
+
+## parser detail
+``` python
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--csv', help='train model csv file')
+parser.add_argument('--label', help='train label of dataset')
+parser.add_argument('--data', help='train dataset')
+parser.add_argument('--epoch', help='traing Epoch')
+```
+
+## data read
+``` python
+def read_dataset(dataset, data, label):
+	df = pd.read_csv(dataset)
+	label_list = list(set(df[args.label]))
+	df.sample(frac=1)
+	x_train, x_test, y_train, y_test = train_test_split(
+    	list(df[data]), list(df[label]), test_size=0.33, random_state=42)
+	return x_train, x_test, y_train, y_test, label_list
 ```
 
 ## ☄️ Available models
@@ -47,7 +68,7 @@ Replace the bottom part with the model you want.
 
 ## Outstanding performance
 ![](img.png)  
-#### 📈 97
+### 97 📈 
 
 ## predictor
 You can use the function below.
