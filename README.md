@@ -39,7 +39,7 @@ parser.add_argument('--data', help='train dataset')
 parser.add_argument('--epoch', help='traing Epoch')
 ```
 
-## data read
+## 📝 data read
 ``` python
 def read_dataset(dataset, data, label):
 	df = pd.read_csv(dataset)
@@ -70,7 +70,7 @@ Replace the bottom part with the model you want.
 ![](img.png)  
 ### 97 📈 
 
-## predictor
+## 🃏 predictor
 You can use the function below.
 ``` python
 def predictor(learner, test):
@@ -79,7 +79,7 @@ def predictor(learner, test):
 
 ```
 
-## tensorboard
+## 📊 tensorboard
 ```
 tensorboard \
 	--logdir==training:your_log_dir \
