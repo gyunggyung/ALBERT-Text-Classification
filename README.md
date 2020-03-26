@@ -12,7 +12,7 @@ Using the ktrain library, proceed with the text classification. Detailed descrip
 pip install requirements.txt
 ```
 
-## How to use
+## 👨🏿‍💻 How to use
 With simple commands, you can proceed with text classification for datasets made up of csv files, use `main.py`:
 ```
 python main.py \
@@ -21,7 +21,7 @@ python main.py \
 	--data Resume \
 	--epoch 5
 ```
-### My case
+### 👩🏽‍💻 My case
 ```
 python main.py \
 	--csv data.csv \
@@ -39,7 +39,7 @@ parser.add_argument('--data', help='train dataset')
 parser.add_argument('--epoch', help='traing Epoch')
 ```
 
-## 📝 data read
+## 📝 read_dataset
 ``` python
 def read_dataset(dataset, data, label):
 	df = pd.read_csv(dataset)
@@ -66,9 +66,9 @@ Replace the bottom part with the model you want.
 | XLNet: | *xlnet-base-cased, xlnet-large-cased*|
 
 
-## Outstanding performance
+## 🏴‍☠️ Performance
 ![](img.png)  
-### 97 📈 
+#### 📈 97.16  
 
 ## 🃏 predictor
 You can use the function below.
@@ -85,7 +85,7 @@ tensorboard \
 	--logdir==training:your_log_dir \
 	--host=127.0.0.1
 ```
-### Example
+### 〽️ Example
 ```
 tensorboard \
 	--logdir==training:logs/ \
