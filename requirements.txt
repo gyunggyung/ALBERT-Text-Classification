@@ -4,3 +4,4 @@ matplotlib
 scikit-learn
 tensorflow
 ktrain
+tensorboard==1.12.2
