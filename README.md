@@ -1,5 +1,5 @@
 # ALBERT-Text-Classification
-`[🇰🇷 국민청원 카테고리 분류](ko.md)`
+[🇰🇷 국민청원 카테고리 분류](ko.md)
 
 
 Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
