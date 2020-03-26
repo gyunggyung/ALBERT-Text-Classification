@@ -7,7 +7,7 @@ ALBERT is "A Lite" version of BERT, a popular unsupervised language representati
 Using the ktrain library, proceed with the text classification. Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
 
 
-## System requirements
+## 👩🏻‍💻 System requirements
 ``` python
 pip install requirements.txt
 ```
@@ -30,7 +30,7 @@ python main.py \
 	--epoch 5
 ```
 
-## parser detail
+## 🎨 parser detail
 ``` python
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('--csv', help='train model csv file')
