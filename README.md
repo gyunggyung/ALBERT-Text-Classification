@@ -1,4 +1,4 @@
-# Text Classification | [🇰🇷](ko.md)
+# Text Classification, [🇰🇷](ko.md) 버전
 
 Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
 
@@ -12,7 +12,7 @@ With simple commands, you can proceed with text classification for datasets made
 ```
 python main.py --csv data.csv --label Category --data Resume --epoch 5
 ```
-### 👨🏽‍💻 My case
+### My case
 ```
 python main.py --csv data.csv --label label_name --data data_name --epoch 5
 ```
@@ -33,9 +33,9 @@ Replace the bottom part with the model you want.
 
 ## 📈 Outstanding performance
 ![](img.png)  
-##### 97
+#### 97
 
-## 📑 predictor
+## predictor
 You can use the function below.
 ``` python
 def predictor(learner, test):
@@ -44,11 +44,11 @@ def predictor(learner, test):
 
 ```
 
-## 📊 tensorboard
+## tensorboard
 ```
 tensorboard --logdir==training:your_log_dir --host=127.0.0.1
 ```
-### 📉 Example
+### Example
 ```
 tensorboard --logdir==training:logs/ --host=127.0.0.1
 ```
