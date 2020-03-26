@@ -1,20 +1,30 @@
 # Text Classification, [🇰🇷](ko.md) 버전
 
-Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
+ALBERT is "A Lite" version of BERT, a popular unsupervised language representation learning algorithm. ALBERT uses parameter-reduction techniques that allow for large-scale configurations, overcome previous memory limitations, and achieve better behavior with respect to model degradation. For a technical description of the algorithm, see our paper: [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942)
+
+Using the ktrain library, proceed with the text classification. Detailed descriptions can be found at [Blog](https://hipgyung.tistory.com/93)
+
 
 ## 💻 System requirements
 ``` python
 pip install requirements.txt
 ```
 
-## 👩🏽‍💻 How to use
-With simple commands, you can proceed with text classification for datasets made up of csv files.
+## How to use
+With simple commands, you can proceed with text classification for datasets made up of csv files, use `main.py`:
 ```
-python main.py --csv data.csv --label Category --data Resume --epoch 5
+python main.py \
+	--csv data.csv \
+	--label Category \
+	--data Resume --epoch 5
 ```
 ### My case
 ```
-python main.py --csv data.csv --label label_name --data data_name --epoch 5
+python main.py \
+	--csv data.csv \
+	--label label_name \
+	--data data_name \
+	--epoch 5
 ```
 
 ## ☄️ Available models
@@ -31,9 +41,9 @@ Replace the bottom part with the model you want.
 - XLNet: *xlnet-base-cased, xlnet-large-cased*
 
 
-## 📈 Outstanding performance
+## Outstanding performance
 ![](img.png)  
-#### 97
+#### 📈 97
 
 ## predictor
 You can use the function below.
@@ -46,11 +56,15 @@ def predictor(learner, test):
 
 ## tensorboard
 ```
-tensorboard --logdir==training:your_log_dir --host=127.0.0.1
+tensorboard \
+	--logdir==training:your_log_dir \
+	--host=127.0.0.1
 ```
 ### Example
 ```
-tensorboard --logdir==training:logs/ --host=127.0.0.1
+tensorboard \
+	--logdir==training:logs/ \
+	--host=127.0.0.1
 ```
 
 ## 🔬 Library
