@@ -8,8 +8,8 @@ Using the ktrain library, proceed with the text classification. Detailed descrip
 
 
 ## 👩🏻‍💻 System requirements
-``` python
-pip install requirements.txt
+```
+pip install -r requirements.txt
 ```
 
 ## 👨🏿‍💻 How to use
@@ -19,14 +19,6 @@ python main.py \
 	--csv data.csv \
 	--label Category \
 	--data Resume \
-	--epoch 5
-```
-### 👩🏽‍💻 My case
-```
-python main.py \
-	--csv data.csv \
-	--label label_name \
-	--data data_name \
 	--epoch 5
 ```
 
@@ -68,7 +60,7 @@ Replace the bottom part with the model you want.
 
 ## 🏴‍☠️ Performance
 ![](img.png)  
-#### 📈 97.16  
+#### 97.16 📈 
 
 ## 🃏 predictor
 You can use the function below.
@@ -83,12 +75,6 @@ def predictor(learner, test):
 ```
 tensorboard \
 	--logdir==training:your_log_dir \
-	--host=127.0.0.1
-```
-### 〽️ Example
-```
-tensorboard \
-	--logdir==training:logs/ \
 	--host=127.0.0.1
 ```
 
